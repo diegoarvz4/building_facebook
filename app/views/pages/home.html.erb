@@ -1,8 +1,10 @@
 <div class="container">
+    
     <% if current_user%>
-    
+
+        <h1><%= current_user.email.split('@')[0].capitalize %></h1>
         <span><%= link_to "Sign out", destroy_user_session_path, method: :delete %></span>
-    
+        
     <% else %>
     
         <span><%= link_to "Sign in", new_user_session_path %> or </span>
