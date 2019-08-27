@@ -2,7 +2,7 @@
     
     <% if current_user%>
 
-        <h1><%= current_user.email.split('@')[0].capitalize %></h1>
+        <h1><%= user_name(current_user) %></h1>
         <span><%= link_to "Sign out", destroy_user_session_path, method: :delete %></span>
         
     <% else %>
@@ -12,5 +12,17 @@
 
     <% end %>
     
+    <hr>
+
+    <%= render 'newpost'%>
+
+    <hr>
+    <h2>Posts</h2>
+
+    <% @posts.each do |post|%>
+        <hr>
+        <h3>Post by <%= user_name(post.author)%> </h3>
+        <p> <%= post.content %> </p>
+    <% end %>
 
 </div>
