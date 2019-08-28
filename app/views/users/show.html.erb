@@ -1,1 +1,18 @@
-<%= current_user.email %>
+<h1>Welcome <%= current_user.profile.name %></h1>
+<h1> Profile </h1>
+
+
+<ul>
+
+    <li>City: <%= @profile.city %></li>
+    <li>Country: <%= @profile.country %></li>
+    <li>Description: <%= @profile.description %></li>
+    <% if @profile.birthdate %>
+        <li>Birthdate: <%= @profile.birthdate.to_formatted_s(:long)[0..15] %></li>
+    <% else %>
+         <li>Birthdate: <%= @profile.birthdate %></li>
+    <%end %>
+
+    <%= link_to "Edit profile", profile_edit_path%>
+    
+</ul>

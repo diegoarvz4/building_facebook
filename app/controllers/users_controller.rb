@@ -9,7 +9,20 @@ class UsersController < ApplicationController
     end
 
     def show
-       # @user = current_user
+  
+       @profile = current_user.profile
+       
+    end 
+
+    def update
+
+        profile = current_user.profile
+        profile.assign_attributes(user_profile_params)
+        if profile.save
+            redirect_to profile_path
+        else 
+            render 'edit'
+        end 
     end 
 
     private
@@ -17,4 +30,8 @@ class UsersController < ApplicationController
     def user_params
      params.require(:user).permit(:email,:password)
     end
+
+    def user_profile_params
+        params.require(:user).permit(:name, :city, :country, :description, :birthdate)
+    end 
 end

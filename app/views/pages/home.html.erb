@@ -10,7 +10,7 @@
         <hr>
         
         <h3> <%= post.content %> </h3>
-        <h5><%= user_name(post.author)%> </h5>
+        <h5><%= post.author%> </h5>
         <h6><%= time_ago_in_words(post.created_at) %> ago  </h6>
     <% end %>
 

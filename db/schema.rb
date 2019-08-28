@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_27_224218) do
+ActiveRecord::Schema.define(version: 2019_08_28_204451) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,18 @@ ActiveRecord::Schema.define(version: 2019_08_27_224218) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_posts_on_author_id"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string "country"
+    t.string "city"
+    t.datetime "birthdate"
+    t.string "description"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -37,4 +49,5 @@ ActiveRecord::Schema.define(version: 2019_08_27_224218) do
   end
 
   add_foreign_key "posts", "users", column: "author_id"
+  add_foreign_key "profiles", "users"
 end
