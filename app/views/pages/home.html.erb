@@ -1,28 +1,17 @@
 <div class="container">
-    
     <% if current_user%>
-
-        <h1><%= user_name(current_user) %></h1>
-        <span><%= link_to "Sign out", destroy_user_session_path, method: :delete %></span>
-        
-    <% else %>
-    
-        <span><%= link_to "Sign in", new_user_session_path %> or </span>
-        <span><%= link_to "Sign up", new_user_registration_path %></span>
-
+          <%= render 'newpost'%>
     <% end %>
-    
     <hr>
 
-    <%= render 'newpost'%>
-
-    <hr>
-    <h2>Posts</h2>
+    <h2>Timeline</h2>
 
     <% @posts.each do |post|%>
         <hr>
-        <h3>Post by <%= user_name(post.author)%> </h3>
-        <p> <%= post.content %> </p>
+        
+        <h3> <%= post.content %> </h3>
+        <h5><%= user_name(post.author)%> </h5>
+        <h6><%= time_ago_in_words(post.created_at) %> ago  </h6>
     <% end %>
 
 </div>

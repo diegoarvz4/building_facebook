@@ -10,7 +10,7 @@ class PostsController < ApplicationController
 
     post = current_user.posts.new(post_params)
 
-    if post 
+    if post.save 
       redirect_to root_path
     end 
 
