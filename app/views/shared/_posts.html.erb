@@ -4,7 +4,7 @@
             <div class="post-content"> <%= post.content %> </div>
             <div class="author">
               <div class="author-img">
-                <%= image_tag(current_user.gravatar_url, class: "img-circle author-img") if user_signed_in? %>
+                <%= image_tag(post.author.gravatar_url, class: "img-circle author-img") if user_signed_in? %>
               </div>
               <div class="author-info">
                 <span class="post-author"><%= link_to post.author.profile.name, post.author %> </span>
