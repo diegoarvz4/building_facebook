@@ -17,6 +17,7 @@
 
     <ul class="nav navbar-nav navbar-right">
         <% if current_user%>
+            <li><%= link_to "Users", users_path %></li>
             <li><%= link_to "Timeline", root_path %></li>
             <li><%= link_to current_user.profile.name, current_user %></li>
             <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>

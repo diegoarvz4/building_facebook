@@ -6,8 +6,8 @@
             <span class="post-timeago"><%= time_ago_in_words(post.created_at) %> ago  </span>
             <hr>
             <div class="post-buttons">
-                <span>like</span>
-                <span>comment</span>
+                <%= image_tag('thumbs-up.svg', class: 'like-icon')%>
+                <span class="post-buttons-comment">comment</span>
             </div>
         </div>
 <% end %>

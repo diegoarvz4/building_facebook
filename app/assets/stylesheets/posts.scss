@@ -33,5 +33,24 @@
     &-buttons{
         display:flex;
         justify-content: space-between;
+        &-comment{
+            font-weight: bold;
+            cursor: pointer;
+        }
     }
 }
+
+.like-icon{
+    width: 20px;
+    &:hover{
+        cursor: pointer;
+    }
+
+    &:active{
+        width: 22px;
+    }
+
+    transition: all 0.1s;
+
+}
+
