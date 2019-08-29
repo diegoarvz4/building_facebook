@@ -11,8 +11,13 @@ class PostsController < ApplicationController
     post = current_user.posts.new(post_params)
 
     if post.save 
-      redirect_to root_path
+      flash.notice = "Posted!"
+    else  
+      flash.alert = "Post should not be empty!"
     end 
+    redirect_to root_path
+    
+    
 
   end
 

@@ -11,7 +11,7 @@ RSpec.describe 'User session test', type: :feature do
       click_on 'Log in'
       expect(page).to have_content('Sign out')
       click_on 'Sign out'
-      expect(page).to have_content('Sign in or Sign up')
+      expect(page).to have_content('You need to sign in or sign up before continuing.')
     end
 
   
