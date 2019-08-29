@@ -1,18 +1,32 @@
-<h1>Welcome <%= current_user.profile.name %></h1>
-<h1> Profile </h1>
+<h1 class="profile-title"><%= current_user.profile.name %> Profile</h1>
 
+<div class="profile">
 
-<ul>
+    <ul class="list-group profile-list-keys">
 
-    <li>City: <%= @profile.city %></li>
-    <li>Country: <%= @profile.country %></li>
-    <li>Description: <%= @profile.description %></li>
-    <% if @profile.birthdate %>
-        <li>Birthdate: <%= @profile.birthdate.to_formatted_s(:long)[0..15] %></li>
-    <% else %>
-         <li>Birthdate: <%= @profile.birthdate %></li>
-    <%end %>
+        <li class="list-group-item">City</li>
+        <li class="list-group-item">Country</li>
+        <li class="list-group-item">Description</li>
+        <li class="list-group-item">Birthdate</li>
 
-    <%= link_to "Edit profile", profile_edit_path%>
+    </ul>
+
+    <ul class="list-group profile-list-values">
+
+        <li class="list-group-item"> <%= @profile.city %></li>
+        <li class="list-group-item"><%= @profile.country %></li>
+        <li class="list-group-item"> <%= @profile.description %></li>
+        <% if @profile.birthdate %>
+            <li class="list-group-item"> <%= @profile.birthdate.to_formatted_s(:long)[0..15] %></li>
+        <% else %>
+            <li class="list-group-item"> <%= @profile.birthdate %></li>
+        <%end %>
     
-</ul>
+    </ul>
+
+
+
+</div>
+
+
+ <%= link_to "Edit profile", profile_edit_path%>

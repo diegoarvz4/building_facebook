@@ -13,7 +13,7 @@ class User < ApplicationRecord
   private 
     def profile_creation
 
-      profile = Profile.new(name: self.email.split('@')[0].capitalize, birthdate: Time.now) # give a default user name
+      profile = Profile.new(name: self.email.split('@')[0].capitalize, birthdate: Time.now) # give a default user name and birthdate
       self.profile = profile
 
     end 

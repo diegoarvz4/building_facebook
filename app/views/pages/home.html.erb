@@ -8,10 +8,16 @@
 
     <% @posts.each do |post|%>
         <hr>
-        
-        <h3> <%= post.content %> </h3>
-        <h5><%= post.author%> </h5>
-        <h6><%= time_ago_in_words(post.created_at) %> ago  </h6>
+        <div class="post">
+            <div class="post-content"> <%= post.content %> </div>
+            <span class="post-author"><%= post.author.profile.name%> </span>
+            <span class="post-timeago"><%= time_ago_in_words(post.created_at) %> ago  </span>
+            <hr>
+            <div class="post-buttons">
+                <span>like</span>
+                <span>comment</span>
+            </div>
+        </div>
     <% end %>
 
 </div>
