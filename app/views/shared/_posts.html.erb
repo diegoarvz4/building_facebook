@@ -1,0 +1,13 @@
+<% @posts.each do |post|%>
+        <hr>
+        <div class="post">
+            <div class="post-content"> <%= post.content %> </div>
+            <span class="post-author"><%= link_to post.author.profile.name, post.author %> </span>
+            <span class="post-timeago"><%= time_ago_in_words(post.created_at) %> ago  </span>
+            <hr>
+            <div class="post-buttons">
+                <span>like</span>
+                <span>comment</span>
+            </div>
+        </div>
+<% end %>

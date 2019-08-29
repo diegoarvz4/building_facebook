@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
     def index
     end 
+    
     def new
      @user = User.new
     end
@@ -9,9 +10,11 @@ class UsersController < ApplicationController
     end
 
     def show
-  
-       @profile = current_user.profile
        
+       @user =  User.find_by(id: user_id_param)
+       @profile = @user.profile
+       @posts = @user.posts 
+
     end 
 
     def update
@@ -19,7 +22,7 @@ class UsersController < ApplicationController
         profile = current_user.profile
         profile.assign_attributes(user_profile_params)
         if profile.save
-            redirect_to profile_path
+            redirect_to current_user
         else 
             render 'edit'
         end 
@@ -28,10 +31,15 @@ class UsersController < ApplicationController
     private
 
     def user_params
-     params.require(:user).permit(:email,:password)
+        params.require(:user).permit(:email,:password)
     end
 
     def user_profile_params
         params.require(:user).permit(:name, :city, :country, :description, :birthdate)
+    end 
+
+    def user_id_param
+        params.require(:id)
+      
     end 
 end

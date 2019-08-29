@@ -6,18 +6,6 @@
 
     <h2>Timeline</h2>
 
-    <% @posts.each do |post|%>
-        <hr>
-        <div class="post">
-            <div class="post-content"> <%= post.content %> </div>
-            <span class="post-author"><%= post.author.profile.name%> </span>
-            <span class="post-timeago"><%= time_ago_in_words(post.created_at) %> ago  </span>
-            <hr>
-            <div class="post-buttons">
-                <span>like</span>
-                <span>comment</span>
-            </div>
-        </div>
-    <% end %>
+     <%= render '/shared/posts'%>
 
 </div>

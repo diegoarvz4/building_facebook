@@ -1,4 +1,4 @@
- <%= form_for(:user, url: profile_update_path,  method: :patch) do |f|%>
+ <%= form_for(:user, url: user_path(current_user),  method: :patch) do |f|%>
     
     <%= f.label :name %>
     <%= f.text_field :name,  :value => current_user.profile.name, class: 'form-control' %><br>

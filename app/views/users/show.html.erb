@@ -1,4 +1,4 @@
-<h1 class="profile-title"><%= current_user.profile.name %> Profile</h1>
+<h1 class="profile-title"><%= @profile.name %> Profile</h1>
 
 <div class="profile">
 
@@ -16,11 +16,8 @@
         <li class="list-group-item"> <%= @profile.city %></li>
         <li class="list-group-item"><%= @profile.country %></li>
         <li class="list-group-item"> <%= @profile.description %></li>
-        <% if @profile.birthdate %>
-            <li class="list-group-item"> <%= @profile.birthdate.to_formatted_s(:long)[0..15] %></li>
-        <% else %>
-            <li class="list-group-item"> <%= @profile.birthdate %></li>
-        <%end %>
+        <li class="list-group-item"> <%= @profile.birthdate.to_formatted_s(:long)[0..15] %></li>
+    
     
     </ul>
 
@@ -29,4 +26,7 @@
 </div>
 
 
- <%= link_to "Edit profile", profile_edit_path%>
+ <%= link_to "Edit profile", edit_user_path(current_user)%>
+
+
+ <%= render '/shared/posts'%>
