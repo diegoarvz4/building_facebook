@@ -1,25 +1,28 @@
 <h1 class="profile-title"><%= @profile.name %> Profile</h1>
 
-<div class="profile">
+<div class="profile row">
+   <div class="col-md-6">
 
-    <ul class="list-group profile-list-keys">
-
-        <li class="list-group-item">City</li>
-        <li class="list-group-item">Country</li>
-        <li class="list-group-item">Description</li>
-        <li class="list-group-item">Birthdate</li>
-
-    </ul>
-
-    <ul class="list-group profile-list-values">
-
-        <li class="list-group-item"> <%= @profile.city %></li>
-        <li class="list-group-item"><%= @profile.country %></li>
-        <li class="list-group-item"> <%= @profile.description %></li>
-        <li class="list-group-item"> <%= @profile.birthdate.to_formatted_s(:long)[0..15] %></li>
+   <%= image_tag(current_user.gravatar_url, class: "img-thumbnail img-large") if user_signed_in? %> <!--GRAVATAR IMAGE TAGE -->
+  </div>
     
+    <div class="col-md-6">
+    <table class="table-striped">
+      <tr>
+        <td class="subject">City :</td> <td> <%= @profile.city %></td>
+      </tr>
+      <tr>
+        <td class="subject">Country :</td><td ><%= @profile.country %></td>
+      </tr>
+      <tr>
+        <td  class="subject">Description :</td> <td> <%= @profile.description %></td>
+      </tr>
+      <tr>
+       <td  class="subject">Birthdate :</td>  <td > <%= @profile.birthdate.to_formatted_s(:long)[0..15] %></td>
+      </tr>
     
-    </ul>
+      </table>
+    </div>
 
 
 

@@ -2,8 +2,16 @@
         <hr>
         <div class="post">
             <div class="post-content"> <%= post.content %> </div>
-            <span class="post-author"><%= link_to post.author.profile.name, post.author %> </span>
-            <span class="post-timeago"><%= time_ago_in_words(post.created_at) %> ago  </span>
+            <div class="author">
+              <div class="author-img">
+                <%= image_tag(current_user.gravatar_url, class: "img-circle author-img") if user_signed_in? %>
+              </div>
+              <div class="author-info">
+                <span class="post-author"><%= link_to post.author.profile.name, post.author %> </span>
+                <span class="post-timeago"><%= time_ago_in_words(post.created_at) %> ago  </span>
+              </div>
+            </div>
+
             <hr>
             <div class="post-buttons">
                 <%= image_tag('thumbs-up.svg', class: 'like-icon')%>

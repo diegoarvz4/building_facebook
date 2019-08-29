@@ -54,3 +54,38 @@
     color: #468847;
     text-align: left;
  }
+
+ .img-small{
+    width:30%;
+    margin-top:15px;
+ }
+
+ .img-large{
+   width:80%;
+
+}
+
+.author{
+   display: flex;
+   justify-content: space-between;
+}
+
+.author-img{
+   width:25%;
+}
+td{
+   width:400px;
+   padding:10px;
+}
+
+.subject{
+   font-weight: bold;
+   color:rgb(174, 173, 230);
+
+
+}
+table{
+   border:1px solid lightgray;
+   border-radius:10px;
+   padding:20px;
+}
