@@ -1,27 +1,25 @@
 <% @posts.each do |post|%>
-        <hr>
-        <div class="post">
-            <div class="post-content"> <%= post.content %> </div>
-            <div class="author">
-              <div class="author-img">
-                <%= image_tag(post.author.gravatar_url, class: "img-circle author-img") if user_signed_in? %>
-              </div>
-              <div class="author-info">
-                <span class="post-author"><%= link_to post.author.profile.name, post.author %> </span>
-                <span class="post-timeago"><%= time_ago_in_words(post.created_at) %> ago  </span>
-              </div>
-            </div>
-
-            <hr>
-            <div class="post-buttons">
-                <%= image_tag('thumbs-up.svg', class: 'like-icon')%>
-                   <% if  current_user && (current_user.id == post.author.profile.id) %>
-                      <%= link_to 'Delete', posts_destroy_path(post),method: :delete, data: { confirm: 'Are you sure?' } %>
-                      <%= link_to 'Edit', posts_edit_path(post) %>
-                    <% end %>
-
-              
-                <span class="post-buttons-comment">comment</span>
-            </div>
+  <hr>
+  <div class="post">
+      <div class="post-content"> <%= post.content %> </div>
+      <div class="author">
+        <div class="author-img">
+          <%= image_tag(post.author.gravatar_url, class: "img-circle author-img") if user_signed_in? %>
         </div>
+        <div class="author-info">
+          <span class="post-author"><%= link_to post.author.profile.name, post.author %> </span>
+          <span class="post-timeago"><%= time_ago_in_words(post.created_at) %> ago  </span>
+        </div>
+      </div>
+
+      <hr>
+      <div class="post-buttons">
+          <%= image_tag('thumbs-up.svg', class: 'like-icon')%>
+              <% if  current_user && (current_user.id == post.author.profile.id) %>
+                <%= link_to 'Delete', posts_destroy_path(post),method: :delete, data: { confirm: 'Are you sure?' } %>
+                <%= link_to 'Edit', posts_edit_path(post) %>
+              <% end %>
+          <span class="post-buttons-comment">comment</span>
+      </div>
+  </div>
 <% end %>
