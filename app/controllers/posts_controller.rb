@@ -33,7 +33,8 @@ class PostsController < ApplicationController
     @post = Post.find_by(params[:id])
     @post.assign_attributes(post_params)
     if @post.save
-        redirect_to request.referrer
+      flash.notice = "Post update successful!!"
+        redirect_to root_path
     else 
         render 'edit'
     end 

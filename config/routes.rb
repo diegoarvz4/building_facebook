@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   delete 'posts/destroy'
   get 'posts/edit'
   post 'posts/update'
+  patch 'posts/update'
   
  
 
