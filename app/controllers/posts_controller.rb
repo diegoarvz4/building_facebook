@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+
+
   def index
     @posts = Post.all
   end
@@ -21,13 +23,28 @@ class PostsController < ApplicationController
 
   end
 
-  def destroy
-  end
+
 
   def edit
+    @post = Post.find_by(params[:id])
   end
 
   def update
+    @post = Post.find_by(params[:id])
+    @post.assign_attributes(post_params)
+    if @post.save
+        redirect_to request.referrer
+    else 
+        render 'edit'
+    end 
+    
+  end
+
+  def destroy
+    @post = Post.find_by(params[:id])
+    @post.destroy
+    flash.alert = "Post successfully deleted!"
+    redirect_to request.referrer 
   end
 
   private 
@@ -36,4 +53,7 @@ class PostsController < ApplicationController
       params.require(:post).permit(:content, :author_id)
     end 
 
+
 end
+
+

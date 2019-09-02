@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   post 'posts/create'
   delete 'posts/destroy'
   get 'posts/edit'
-  get 'posts/update'
+  post 'posts/update'
   
  
 

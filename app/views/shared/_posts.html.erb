@@ -15,7 +15,12 @@
             <hr>
             <div class="post-buttons">
                 <%= image_tag('thumbs-up.svg', class: 'like-icon')%>
-               <%= render '/shared/modify_post' %>
+                   <% if current_user.id == post.author.profile.id %>
+                <%= link_to 'Delete', posts_destroy_path(post),method: :delete, data: { confirm: 'Are you sure?' } %>
+                <%= link_to 'Edit', posts_edit_path(post) %>
+                    <% end %>
+
+              
                 <span class="post-buttons-comment">comment</span>
             </div>
         </div>

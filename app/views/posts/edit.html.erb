@@ -1,0 +1,11 @@
+<div class='form-container'>
+       
+        <%= form_for(:post, url: posts_update_path) do |f|%>
+       
+            
+            <%= f.label :content, 'Modify your post' %>
+            <%= f.text_field :content, class: 'form-control' %><br>
+            <%= f.submit 'Submit', class: 'btn btn-info btn-block' %>
+        <% end %>
+</div>
+
