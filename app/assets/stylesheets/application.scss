@@ -90,15 +90,15 @@ table{
    padding:20px;
 }
 
-.delete a:link{
-   text-decoration: none;
-   color:red;
- 
-   }
+.comment-form{
+ width: 360px;
+ border-radius:10px;
+ margin-bottom: 10px;
+}
 
-
-.edit a:link{
-      text-decoration: none;
-      color:rgb(48, 48, 233);
-      
-   }
+.comment-btn{
+   border:0px;
+   background-color:#31B0D5;
+   color:white;
+   border-radius:5px;
+}

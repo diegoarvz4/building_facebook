@@ -21,6 +21,6 @@ Rails.application.routes.draw do
   post 'posts/update'
   patch 'posts/update'
   
-
+resources :comments
      
 end
