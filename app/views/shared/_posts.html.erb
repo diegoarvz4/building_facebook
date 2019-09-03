@@ -32,7 +32,7 @@
     <% end %>
     <hr>
     <!-- ###COMMENT FORM BEGINNING -->
-    <h4>Comments</h4>
+    <h4> <%= pluralize(post.comments.count,'comment') %> </h4>
      
        <% post.comments.each do |comment| %>
         <div class="comments">
