@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BuildingFacebook</title>
+    <title>uFriends</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,8 +10,15 @@
   </head>
 
   <body >
-    <%= render 'layouts/alerts'%>
-    <%= yield %>
+
+  
+    
+    <div class="container">
+    
+      <%= render 'layouts/alerts'%>
+      <%= render 'layouts/navbar'%>
+      <%= yield %>
+    </div>
     
   </body>
 </html>
