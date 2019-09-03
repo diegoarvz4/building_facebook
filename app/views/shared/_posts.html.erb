@@ -23,6 +23,7 @@
               <% end %>
        
       </div>
+    <!-- ###COMMENT FORM -->
       <%= form_for(:comment, url: comments_path) do |f|%>
         <%= f.text_field :content, placeholder: 'add a comment...', class: 'comment-form' %>
         <%= f.hidden_field :post_id, value: post.id %>
@@ -30,7 +31,7 @@
         <%= f.submit 'send', class: 'comment-btn' %>
     <% end %>
     <hr>
-    <!-- ###COMMENT DISPLAY -->
+    <!-- ###COMMENT FORM BEGINNING -->
     <h4>Comments</h4>
      
        <% post.comments.each do |comment| %>
@@ -41,11 +42,11 @@
               <%= link_to 'X', comment_path(comment) ,class:"btn btn-default btn-xs delete-btn", method: :delete, data: { confirm: 'Delete your comment?' } %>
               <% end %>
            </div>
-           <span>By:<%= comment.author.id %> </span>
-           <span> <%= time_ago_in_words(comment.created_at) %> </span><br><hr>
+           <span>By :<%= comment.author.id %> </span>
+           <span> -- <%= time_ago_in_words(comment.created_at) %> </span><br><hr>
         </div>
 
-     <!-- ###COMMENT DISPLAY -->
+     <!-- ###COMMENT DISPLAY ENDING-->
     <% end %>
   </div>
 
