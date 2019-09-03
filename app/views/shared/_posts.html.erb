@@ -42,7 +42,7 @@
               <%= link_to 'X', comment_path(comment) ,class:"btn btn-default btn-xs delete-btn", method: :delete, data: { confirm: 'Delete your comment?' } %>
               <% end %>
            </div>
-           <span>By :<%= comment.author.id %> </span>
+           <span>By :<%= comment.author.profile.name %> </span>
            <span> -- <%= time_ago_in_words(comment.created_at) %> </span><br><hr>
         </div>
 
