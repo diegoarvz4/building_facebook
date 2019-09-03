@@ -94,11 +94,20 @@ table{
  width: 360px;
  border-radius:10px;
  margin-bottom: 10px;
+padding:5px;
 }
+
 
 .comment-btn{
    border:0px;
    background-color:#31B0D5;
    color:white;
    border-radius:5px;
+}
+
+.footer-nav{
+   height: 100px;
+   background-color: rgba(44, 41, 41, 0.212);
+   padding:10px 50px;
+   margin-top:100px;
 }

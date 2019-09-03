@@ -11,9 +11,9 @@
           <span class="post-timeago"><%= time_ago_in_words(post.created_at) %> ago  </span>
         </div>
       </div>
-       
+      
       <hr>
-      <%= render '/shared/comment'%>
+     
       <div class="post-buttons">
  
           <%= image_tag('thumbs-up.svg', class: 'like-icon')%>
@@ -23,5 +23,17 @@
               <% end %>
        
       </div>
+      <%= form_for(:comment, url: comments_path) do |f|%>
+        <%= f.text_field :content, placeholder: 'add a comment...', class: 'comment-form' %>
+        <%= f.hidden_field :post_id, value: post.id %>
+        <%= f.hidden_field :author_id, value: current_user.id %>
+        <%= f.submit 'send', class: 'comment-btn' %>
+    <% end %>
+    <hr>
+    <% post.comments.each do |comment| %>
+     <p><%= comment.content %> </p>
+    <% end %>
   </div>
+
+
 <% end %>
