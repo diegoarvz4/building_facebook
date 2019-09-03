@@ -17,7 +17,16 @@ def create
   end
 end
 
-
+def destroy
+  @comment = Comment.find_by(id: params[:id])
+  if @comment.destroy
+    flash.alert = "Comment deleted"
+    redirect_to request.referrer 
+  else
+    flash.alert = "comment could not be deleted"
+    redirect_to request.referrer 
+  end
+end
 
 private
 

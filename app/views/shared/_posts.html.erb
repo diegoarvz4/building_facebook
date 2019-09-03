@@ -30,8 +30,22 @@
         <%= f.submit 'send', class: 'comment-btn' %>
     <% end %>
     <hr>
-    <% post.comments.each do |comment| %>
-     <p><%= comment.content %> </p>
+    <!-- ###COMMENT DISPLAY -->
+    <h4>Comments</h4>
+     
+       <% post.comments.each do |comment| %>
+        <div class="comments">
+          <div class="comment-info">
+            <b><%= comment.content %> </b>
+              <% if  current_user && (current_user.id == post.author.profile.id) %>
+              <%= link_to 'X', comment_path(comment) ,class:"btn btn-default btn-xs delete-btn", method: :delete, data: { confirm: 'Delete your comment?' } %>
+              <% end %>
+           </div>
+           <span>By:<%= comment.author.id %> </span>
+           <span> <%= time_ago_in_words(comment.created_at) %> </span><br><hr>
+        </div>
+
+     <!-- ###COMMENT DISPLAY -->
     <% end %>
   </div>
 
