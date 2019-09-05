@@ -9,7 +9,7 @@ def create
    @comment = Comment.new(comment_params)
  if @comment.save
     @post = @comment.post
-     redirect_to request.referrer 
+     redirect_to @post 
     flash.notice = "Comment added"
    else
     redirect_to root_path

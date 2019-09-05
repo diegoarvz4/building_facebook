@@ -38,6 +38,18 @@
             cursor: pointer;
         }
     }
+
+    &-like-names span:after{
+    
+        content: ",";
+
+    }
+
+    &-like-names span:last-child:after{
+    
+        content: " ";
+
+    }
 }
 
 .like-icon{

@@ -6,10 +6,10 @@ class User < ApplicationRecord
   after_create :profile_creation
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :posts, foreign_key: :author_id
+  has_many :posts, foreign_key: :author_id, dependent: :destroy
   has_many :comments, foreign_key: :author_id
   has_one :profile
-
+  has_many :likes, dependent: :destroy
   private 
     def profile_creation
 

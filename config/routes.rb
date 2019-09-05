@@ -20,7 +20,8 @@ Rails.application.routes.draw do
   get 'posts/edit'
   post 'posts/update'
   patch 'posts/update'
-  
-resources :comments
-     
+  #get 'posts/:id', to: 'posts#show'
+  resources :comments
+  resources :likes, only: [:create]
+  resources :posts, only: [:show]
 end
