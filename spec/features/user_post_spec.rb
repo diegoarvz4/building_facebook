@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 
-RSpec.describe 'User posting', type: :feature do
+RSpec.describe 'User posting, commenting and liking', type: :feature do
 
-   scenario 'login to make a valid post and then make invalid post' do
+   scenario 'login to make a valid post and then make invalid post. Finally post a comment' do
     user = User.create!(email: 'diego@email.com', password:'1234567890')
     p_content = "This is my post!"
     visit new_user_session_path
@@ -20,7 +20,17 @@ RSpec.describe 'User posting', type: :feature do
     fill_in 'post_content', with: ""
     click_on 'Submit'
     expect(page).to have_content("Post should not be empty!")
-    
+
+    #comment user
+
+    fill_in 'comment_content', with: 'My comment'
+    click_on 'send'
+    expect(page).to have_content("Comment added")
+
+    #make a like
+    click_link 'like-link'
+    expect(page).to  have_content("Liked!")
+
   end 
    
   
