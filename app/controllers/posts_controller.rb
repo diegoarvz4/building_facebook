@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
 
+  before_action :set_post, only: [:edit, :update, :destroy, :show]
 
   def index
     @posts = Post.all
@@ -11,31 +12,32 @@ class PostsController < ApplicationController
 
   def create
 
-    post = current_user.posts.new(post_params)
+    @post = current_user.posts.new(post_params)
 
-    if post.save 
-      flash.notice = "Posted!"
+    if @post.save 
+      flash.notice = 'Posted!'
+      redirect_to root_path
     else  
-      flash.alert = "Post should not be empty!"
+      flash.alert = 'Post should not be empty!'
+      @posts = Post.all
+      render 'posts/index'
     end 
-    redirect_to root_path
     
   end
 
   def show 
-    @post = Post.find_by(id: params[:id])
+  
   end 
 
 
   def edit
-    @post = Post.find_by(params[:id])
+  
   end
 
   def update
-    @post = Post.find_by(params[:id])
-    @post.assign_attributes(post_params)
-    if @post.save
-      flash.notice = "Post update successful!!"
+
+    if @post.update_attributes(content: params[:post][:content])
+        flash.notice = 'Post update successfull!'
         redirect_to root_path
     else 
         render 'edit'
@@ -44,16 +46,20 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find_by(params[:id])
+    
     @post.destroy
-    flash.alert = "Post successfully deleted!"
-    redirect_to request.referrer 
+    flash.alert = 'Post successfully deleted!'
+    redirect_to request.referrer
   end
 
   private 
 
     def post_params
       params.require(:post).permit(:content, :author_id)
+    end 
+
+    def set_post
+      @post = Post.find_by(id: params[:id])
     end 
 
 

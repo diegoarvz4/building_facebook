@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   authenticated :user do
-    root to: 'pages#home'
+    root to: 'posts#index'
   end
 
   devise_scope :user do
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get 'posts/edit'
   post 'posts/update'
   patch 'posts/update'
-  #get 'posts/:id', to: 'posts#show'
+
   resources :comments
   resources :likes, only: [:create]
   resources :posts, only: [:show]

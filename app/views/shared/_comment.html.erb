@@ -1,6 +1,0 @@
-
-    <%= form_for(:comment, url: comments_path) do |f|%>
-        <%= f.text_field :content, placeholder: 'Add a comment...', class: 'comment-form' %>
-        <%= hidden_field_tag :post_id  %>
-        <%= f.submit 'send', class: 'comment-btn' %>
-    <% end %>

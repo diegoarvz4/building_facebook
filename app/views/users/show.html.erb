@@ -25,7 +25,11 @@
 </div>
 
  <% if current_user?(@user) %>
-    <%= link_to "Edit profile", edit_user_path(current_user)%>
+    <div>
+      <hr>
+      <%= link_to "Edit Profile", edit_user_registration_path%>
+      <hr>
+    </div>
  <% end %>
 
  <%= render '/shared/posts'%>

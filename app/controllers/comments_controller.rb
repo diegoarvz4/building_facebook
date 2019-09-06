@@ -6,15 +6,18 @@ class CommentsController < ApplicationController
   end
 
 def create
-   @comment = Comment.new(comment_params)
- if @comment.save
+  @comment = current_user.comments.build(comment_params)
+  if @comment.save
     @post = @comment.post
-     redirect_to @post 
+    redirect_to @post 
     flash.notice = "Comment added"
-   else
-    redirect_to root_path
-   flash.alert = "Invalid comment"
+  else
+    
+    @posts = Post.all
+    render 'posts/index'
+    flash.now.alert = "Invalid comment"
   end
+
 end
 
 def destroy
@@ -31,7 +34,7 @@ end
 private
 
 def comment_params
- params.require(:comment).permit(:content, :author_id, :post_id)
+ params.require(:comment).permit(:content,:post_id)
 end
 
 
