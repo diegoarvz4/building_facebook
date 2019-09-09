@@ -26,8 +26,8 @@
       <% end %>
       <%= link_to image_tag('thumbs-up.svg', class: 'like-icon'),   likes_path(post_id: post.id), method: :post,  id: "like-link"  %>
       <% if  current_user && (current_user.id == post.author.profile.id) %>
-        <%= link_to 'Delete', posts_destroy_path(post),method: :delete, data: { confirm: 'Are you sure?' } %>
-        <%= link_to 'Edit', posts_edit_path(post) %>
+        <%= link_to 'Delete', posts_destroy_path(id: post.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Edit', posts_edit_path(id: post.id) %>
       <% end %>
        
     </div>

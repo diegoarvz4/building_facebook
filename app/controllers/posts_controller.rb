@@ -1,13 +1,13 @@
 class PostsController < ApplicationController
 
-  before_action :set_post, only: [:edit, :update, :destroy, :show]
+ before_action :find_post, only: [:show, :edit, :update, :destroy]
 
   def index
     @posts = Post.all
   end
   
   def new
-    @comment = Comment.new
+    @post = Post.new
   end
 
   def create
@@ -31,11 +31,11 @@ class PostsController < ApplicationController
 
 
   def edit
-  
+    
   end
 
   def update
-
+    
     if @post.update_attributes(content: params[:post][:content])
         flash.notice = 'Post update successfull!'
         redirect_to root_path
@@ -55,10 +55,10 @@ class PostsController < ApplicationController
   private 
 
     def post_params
-      params.require(:post).permit(:content, :author_id)
+      params.require(:post).permit(:content, :id)
     end 
 
-    def set_post
+    def find_post
       @post = Post.find_by(id: params[:id])
     end 
 

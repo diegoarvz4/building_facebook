@@ -23,5 +23,5 @@ Rails.application.routes.draw do
 
   resources :comments
   resources :likes, only: [:create]
-  resources :posts, only: [:show]
+  resources :posts
 end

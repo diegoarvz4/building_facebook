@@ -8,10 +8,10 @@ class LikesController < ApplicationController
 
         if @like.save
             flash.notice = "Liked!"
-            redirect_to post_path(@post)
+            redirect_to root_path
         else  
             flash.alert = "You can't like it again"
-            render 'posts/show'
+            redirect_to root_path
         end 
 
     end 
