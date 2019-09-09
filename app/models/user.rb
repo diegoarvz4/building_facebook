@@ -10,8 +10,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :posts, foreign_key: :author_id, dependent: :destroy
-  has_many :comments, foreign_key: :author_id
-  has_one :profile
+  has_many :comments, foreign_key: :author_id, dependent: :destroy
+  has_one :profile, dependent: :destroy
   accepts_nested_attributes_for :profile
   has_many :likes, dependent: :destroy
   
