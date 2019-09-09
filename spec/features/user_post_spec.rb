@@ -14,11 +14,11 @@ RSpec.describe 'User posting, commenting and liking', type: :feature do
     expect(page).to have_content("Timeline")
     
     fill_in 'post_content', with: p_content
-    click_on 'Submit'
+    click_on 'Create'
     expect(page).to have_content("Posted!")
     expect(page).to have_content(p_content)
     fill_in 'post_content', with: ""
-    click_on 'Submit'
+    click_on 'Create'
     expect(page).to have_content("Post should not be empty!")
 
     #comment user

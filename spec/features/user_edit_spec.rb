@@ -13,12 +13,13 @@ RSpec.describe 'User profile', type: :feature do
         visit user_path(user)
 
         expect(page).to have_content("City")
-        click_on 'Edit profile'
+        click_on 'Edit Profile'
 
-        new_name = "Mister Goku"
+        new_name = 'Mister Goku'
 
-        fill_in "user_name", with: "Mister Goku"
-        click_on 'Submit'
+        fill_in "Current password", with: '1234567890'
+        fill_in "Name", with: 'Mister Goku'
+        click_on 'Update'
 
 
         expect(page).to have_content(new_name)
