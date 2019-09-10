@@ -16,7 +16,7 @@ RSpec.describe 'User profile', type: :feature do
         fill_in 'Name', with: 'Mister Goku'
         click_on 'Update'
         expect(page).to have_content(new_name)
-    end 
+    end
 
     scenario 'invalid update ' do
         user = User.create!(email: 'diego@email.com', password: '1234567890')
@@ -27,5 +27,5 @@ RSpec.describe 'User profile', type: :feature do
         click_on 'Log in'
         visit user_path(another_user)
         expect(page).not_to have_content('Edit profile')
-    end 
+    end
 end

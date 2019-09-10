@@ -13,18 +13,18 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.new(post_params)
-    if @post.save 
+    if @post.save
       flash.notice = 'Posted!'
       redirect_to root_path
-    else  
+    else
       flash.alert = 'Post should not be empty!'
       @posts = Post.all
       render 'posts/index'
-    end 
+    end
   end
 
-  def show 
-  end 
+  def show
+  end
 
   def edit
   end
@@ -33,9 +33,9 @@ class PostsController < ApplicationController
     if @post.update_attributes(content: params[:post][:content])
         flash.notice = 'Post update successfull!'
         redirect_to @post
-    else 
+    else
         render 'edit'
-    end 
+    end
   end
 
   def destroy
@@ -43,20 +43,20 @@ class PostsController < ApplicationController
     if @post.destroy
       flash.notice = 'Post successfully deleted!'
       redirect_to root_path
-    else  
+    else
       flash.alert = 'An error has occured'
-    end 
+    end
   end
 
-  private 
+  private
 
     def post_params
       params.require(:post).permit(:content, :id)
-    end 
+    end
 
     def find_post
       @post = Post.find_by(id: params[:id])
-    end 
+    end
 end
 
 

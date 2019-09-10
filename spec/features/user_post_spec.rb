@@ -26,5 +26,5 @@ RSpec.describe 'User posting, commenting and liking', type: :feature do
     #make a like
     click_link 'like-link'
     expect(page).to  have_content('Liked!')
-  end 
+  end
 end

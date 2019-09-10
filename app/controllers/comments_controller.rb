@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
     @comment = current_user.comments.build(comment_params)
     if @comment.save
       @post = @comment.post
-      redirect_to @post 
+      redirect_to @post
       flash.notice = 'Comment added'
     else
       @posts = Post.all
@@ -27,7 +27,7 @@ class CommentsController < ApplicationController
     else
       flash.alert = 'Comment could not be deleted'
     end
-    redirect_to request.referrer 
+    redirect_to request.referrer
   end
 
   private

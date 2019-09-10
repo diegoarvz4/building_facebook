@@ -13,5 +13,5 @@ RSpec.describe 'User session test', type: :feature do
     click_on 'Sign out'
     expect(page).to have_content('Signed out successfully')
   end
-  
+
 end

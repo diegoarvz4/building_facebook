@@ -13,13 +13,11 @@
   <hr>
     
   <div class="post-buttons">
-
     <%= link_to image_tag('thumbs-up.svg', class: 'like-icon'), likes_path(post_id: @post.id), method: :post,  id: "like-link"  %>
     <% if  current_user && (current_user.id == @post.author.profile.id) %>
       <%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
       <%= link_to 'Edit', edit_post_path(@post) %>
     <% end %>
-      
   </div>
 
   <% if @post.likes.any? %>

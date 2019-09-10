@@ -11,11 +11,11 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy
   accepts_nested_attributes_for :profile
   has_many :likes, dependent: :destroy
-  
-  private 
-  
+
+  private
+
     def profile_creation
       profile = Profile.new(name: self.email.split('@')[0].capitalize, birthdate: Time.now, city:" ", country:" ", description:" ") # give a default user name and birthdate
       self.profile = profile
-    end 
+    end
 end

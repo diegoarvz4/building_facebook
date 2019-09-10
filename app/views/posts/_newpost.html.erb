@@ -1,5 +1,4 @@
 <div class='form-container'>
-    
     <%= form_for(:post, url: posts_path) do |f|%>
         <%= f.label :content, 'Create a post' %>
         <%= f.text_field :content, placeholder: 'What are you thinking?', class: 'form-control' %><br>
