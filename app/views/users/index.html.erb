@@ -2,11 +2,14 @@
 <hr>
 <div>
   <ul class="list-group users-list">
-
-    <% @users.each do |user|%>
-
-      <li class="list-group-item users-list-item"><%= user.profile.name%> <button class="btn btn-primary">Add</button> </li>
-
+ <% @users.each do |user|%>     
+      <li class="list-group-item users-list-item"><%= user.profile.name%> 
+        <% if @pending_users.include?(user) && user != current_user %> 
+            <%= link_to 'Pending', '#' , class: 'btn btn-warning' %>
+         <% elsif !@pending_users.include?(user) && user != current_user %> 
+            <%= link_to 'Add friend', friendship_path(id: user.id), method: :post, class: 'btn btn-primary' %>
+           <% end %>
+       </li>
     <% end %> 
   </ul>
 </div>

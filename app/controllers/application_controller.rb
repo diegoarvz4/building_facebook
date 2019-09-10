@@ -16,4 +16,17 @@ class ApplicationController < ActionController::Base
                profile_attributes: %i[id name city country description])
     end
   end
+
+
+  def find_friends
+    @friendships = current_user.friendships 
+    @friendships_users = @friendships.map { |friend| friend.friend }
+    @pending = @friendships.select { |friendship| !friendship.confirmed }
+    @pending_users = @pending.map { |pending| pending.friend }
+
+    @accepted = @friendships.select { |friendship| friendship.confirmed }
+    @expected = current_user.inverse_friendships.select{ |friendship| !friendship.confirmed }
+
+    @expected_users = @expected.map { |expected| expected.friend }
+  end
 end
