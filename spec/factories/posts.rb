@@ -1,7 +1,8 @@
-FactoryBot.define do
+# frozen_string_literal:true
 
-    factory :post do
-        author_id { 1 }
-        content { '123456' }
-    end
+FactoryBot.define do
+  factory :post do
+    author_id { 1 }
+    content { '123456' }
+  end
 end

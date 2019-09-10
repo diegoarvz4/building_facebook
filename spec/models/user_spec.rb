@@ -1,7 +1,8 @@
+# frozen_string_literal:true
+
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-
   let(:user) { build(:user) }
 
   it 'is valid with name' do
@@ -17,5 +18,4 @@ RSpec.describe User, type: :model do
     user.email = 'diego.gmail.fr'
     expect(user.save).to eq(false)
   end
-
 end

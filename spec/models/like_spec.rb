@@ -1,3 +1,5 @@
+# frozen_string_literal:true
+
 require 'rails_helper'
 
 RSpec.describe Like, type: :model do
@@ -33,5 +35,4 @@ RSpec.describe Like, type: :model do
     like = Like.new(user_id: user.id, post_id: post.id)
     expect(like.save).to eq(false)
   end
-
 end

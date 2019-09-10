@@ -1,3 +1,5 @@
+# frozen_string_literal:true
+
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
@@ -21,5 +23,4 @@ RSpec.describe Post, type: :model do
     post.save
     expect(post).not_to be_valid
   end
-
 end

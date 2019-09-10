@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
       u.permit(:email,
                :password,
                :current_password,
-               profile_attributes: [:id, :name, :city, :country, :description])
+               profile_attributes: %i[id name city country description])
     end
   end
 end

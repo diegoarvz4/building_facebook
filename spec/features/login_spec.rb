@@ -1,8 +1,8 @@
+# frozen_string_literal:true
+
 require 'rails_helper'
 
-
 RSpec.describe 'User session test', type: :feature do
-
   scenario 'login a user with valid email and password input and then logout' do
     User.create!(email: 'diego@email.com', password: '1234567890')
     visit new_user_session_path
@@ -13,5 +13,4 @@ RSpec.describe 'User session test', type: :feature do
     click_on 'Sign out'
     expect(page).to have_content('Signed out successfully')
   end
-
 end
