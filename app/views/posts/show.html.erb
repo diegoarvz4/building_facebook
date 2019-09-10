@@ -9,9 +9,7 @@
       <span class="post-timeago"><%= time_ago_in_words(@post.created_at) %> ago  </span>
     </div>
   </div>
-    
   <hr>
-    
   <div class="post-buttons">
     <%= link_to image_tag('thumbs-up.svg', class: 'like-icon'), likes_path(post_id: @post.id), method: :post,  id: "like-link"  %>
     <% if  current_user && (current_user.id == @post.author.profile.id) %>
@@ -19,17 +17,14 @@
       <%= link_to 'Edit', edit_post_path(@post) %>
     <% end %>
   </div>
-
   <% if @post.likes.any? %>
     <h6> <%= pluralize(@post.likes.count,'like') %>  </h6> 
   <% end %>
-
   <div class="post-like-names">
   <% @post.likes.each do |like| %>
       <span ><%= like.user.profile.name %></span>
   <% end %>
   </div>
-
   <!-- ###COMMENT FORM -->
   <%= form_for(:comment, url: comments_path) do |f|%>
     <%= f.text_field :content, placeholder: 'add a comment...', class: 'comment-form' %>

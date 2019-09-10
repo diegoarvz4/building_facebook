@@ -9,18 +9,7 @@ Rails.application.routes.draw do
   end
  
   resources :users, only: [:index, :show]
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout'}
-  
-
-  #get 'posts/index'
-  #get 'posts/new'
-  #post 'posts/create'
-
-  #get 'posts/edit'
-  #post 'posts/update'
-  #patch 'posts/update'
-
   resources :comments
   resources :likes, only: [:create]
   resources :posts

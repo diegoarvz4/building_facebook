@@ -22,17 +22,13 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find_by(id: params[:id])
-    if @comment.destroy
-      flash.alert = 'Comment deleted'
-    else
-      flash.alert = 'Comment could not be deleted'
-    end
+    flash.alert = @comment.destroy ? 'Comment deleted' : 'Comment could not be deleted'
     redirect_to request.referrer
   end
 
   private
 
-    def comment_params
-      params.require(:comment).permit(:content, :post_id)
-    end
+  def comment_params
+    params.require(:comment).permit(:content, :post_id)
+  end
 end

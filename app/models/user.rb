@@ -1,3 +1,5 @@
+# frozen_string_literal:true
+
 class User < ApplicationRecord
   include Gravtastic
   gravtastic
@@ -14,8 +16,13 @@ class User < ApplicationRecord
 
   private
 
-    def profile_creation
-      profile = Profile.new(name: self.email.split('@')[0].capitalize, birthdate: Time.now, city:" ", country:" ", description:" ") # give a default user name and birthdate
-      self.profile = profile
-    end
+  def profile_creation
+    # give a default user name and birthdate
+    profile = Profile.new(name: email.split('@')[0].capitalize,
+                          birthdate: Time.now,
+                          city: '',
+                          country: '',
+                          description: '')
+    self.profile = profile
+  end
 end
