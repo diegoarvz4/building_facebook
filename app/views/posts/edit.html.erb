@@ -1,8 +1,5 @@
 <div class='form-container'>
-       
         <%= form_for @post do |f|%>
-       
-            
             <%= f.label :content, 'Modify your post' %>
             <%= f.text_field :content, value: @post.content, class: 'form-control' %><br>
             <%= render 'posts_errors'%>

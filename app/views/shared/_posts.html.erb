@@ -1,7 +1,10 @@
 <% @posts.each do |post|%>
+
+
+
   <hr>
   <div class="post">
-    <div class="post-content"> <%= post.content %> </div>
+    <div class="post-content"> <%= link_to post.content, post  %> </div>
     <div class="author">
       <div class="author-img">
         <%= image_tag(post.author.gravatar_url, class: "img-circle author-img") if user_signed_in? %>
@@ -26,8 +29,8 @@
       <% end %>
       <%= link_to image_tag('thumbs-up.svg', class: 'like-icon'),   likes_path(post_id: post.id), method: :post,  id: "like-link"  %>
       <% if  current_user && (current_user.id == post.author.profile.id) %>
-        <%= link_to 'Delete', posts_destroy_path(id: post.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-        <%= link_to 'Edit', posts_edit_path(id: post.id) %>
+        <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Edit', edit_post_path(post) %>
       <% end %>
        
     </div>

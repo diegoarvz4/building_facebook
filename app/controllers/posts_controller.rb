@@ -26,23 +26,26 @@ class PostsController < ApplicationController
   def show 
   end 
 
-
   def edit
   end
 
   def update
     if @post.update_attributes(content: params[:post][:content])
         flash.notice = 'Post update successfull!'
-        redirect_to root_path
+        redirect_to @post
     else 
         render 'edit'
     end 
   end
 
   def destroy
-    @post.destroy
-    flash.alert = 'Post successfully deleted!'
-    redirect_to request.referrer
+
+    if @post.destroy
+      flash.notice = 'Post successfully deleted!'
+      redirect_to root_path
+    else  
+      flash.alert = 'An error has occured'
+    end 
   end
 
   private 
