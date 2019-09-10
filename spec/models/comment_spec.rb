@@ -5,22 +5,22 @@ RSpec.describe Comment, type: :model do
   let(:user) { build(:user) }
   let(:comment) { build(:comment) }
 
-  it "is invalid without author and without post" do
+  it 'is invalid without author and without post' do
     expect(comment).not_to be_valid 
   end 
 
-  it "is invalid without author and with post" do
+  it 'is invalid without author and with post' do
     comment.post = post
     expect(comment).not_to be_valid 
   end 
 
-  it "is invalid without post and with author" do
+  it 'is invalid without post and with author' do
     comment.author = user
     comment.post = nil
     expect(comment).not_to be_valid 
   end 
 
-  it "is valid with post and author" do
+  it 'is valid with post and author' do
     comment.author = user
     comment.post = post
     expect(comment).to be_valid 
