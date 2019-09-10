@@ -5,37 +5,34 @@ class CommentsController < ApplicationController
     @comments = Comment.all
   end
 
-def create
-  @comment = current_user.comments.build(comment_params)
-  if @comment.save
-    @post = @comment.post
-    redirect_to @post 
-    flash.notice = "Comment added"
-  else
-    
-    @posts = Post.all
-    render 'posts/index'
-    flash.now.alert = "Invalid comment"
+  def create
+    @comment = current_user.comments.build(comment_params)
+    if @comment.save
+      @post = @comment.post
+      redirect_to @post 
+      flash.notice = 'Comment added'
+    else
+      @posts = Post.all
+      render 'posts/index'
+      flash.now.alert = 'Invalid comment'
+    end
   end
 
-end
-
-def destroy
-  @comment = Comment.find_by(id: params[:id])
-  if @comment.destroy
-    flash.alert = "Comment deleted"
-    redirect_to request.referrer 
-  else
-    flash.alert = "comment could not be deleted"
+  def destroy
+    @comment = Comment.find_by(id: params[:id])
+    if @comment.destroy
+      flash.alert = 'Comment deleted'
+    else
+      flash.alert = 'Comment could not be deleted'
+    end
     redirect_to request.referrer 
   end
-end
 
-private
+  private
 
-def comment_params
- params.require(:comment).permit(:content,:post_id)
-end
+    def comment_params
+      params.require(:comment).permit(:content,:post_id)
+    end
 
 
 end

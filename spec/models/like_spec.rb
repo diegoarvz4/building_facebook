@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Like, type: :model do
-  let(:post) {build(:post)}
-  let(:user) {build(:user)}
-  let(:like) {build(:like)}
+  let(:post) { build(:post) }
+  let(:user) { build(:user) }
+  let(:like) { build(:like) }
 
   it "is invalid without author and without post" do
     expect(like).not_to be_valid 
@@ -30,9 +30,7 @@ RSpec.describe Like, type: :model do
     like.user = user
     like.post = post
     like.save 
-
     like = Like.new(user_id: user.id, post_id: post.id) 
-
     expect(like.save).to eq(false) 
   end 
 

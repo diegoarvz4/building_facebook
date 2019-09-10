@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  let(:post) {build(:post)}
-  let(:user) {build(:user)}
+  let(:post) { build(:post) }
+  let(:user) { build(:user) }
 
   it "is valid with author" do
     post.author = user 

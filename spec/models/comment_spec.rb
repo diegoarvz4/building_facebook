@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  let(:post) {build(:post)}
-  let(:user) {build(:user)}
-  let(:comment) {build(:comment)}
+  let(:post) { build(:post) }
+  let(:user) { build(:user) }
+  let(:comment) { build(:comment) }
 
   it "is invalid without author and without post" do
     expect(comment).not_to be_valid 
@@ -25,6 +25,4 @@ RSpec.describe Comment, type: :model do
     comment.post = post
     expect(comment).to be_valid 
   end 
-
-  
 end

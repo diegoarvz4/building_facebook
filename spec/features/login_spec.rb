@@ -4,7 +4,7 @@ require 'rails_helper'
 RSpec.describe 'User session test', type: :feature do
 
   scenario 'login a user with valid email and password input and then logout' do
-    User.create!(email: 'diego@email.com', password:'1234567890')
+    User.create!(email: 'diego@email.com', password: '1234567890')
     visit new_user_session_path
     fill_in 'Email', with: 'diego@email.com'
     fill_in 'Password', with: '1234567890'
