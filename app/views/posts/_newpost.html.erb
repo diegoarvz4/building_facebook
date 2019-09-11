@@ -1,0 +1,8 @@
+<div class='form-container'>
+  <%= form_for(@post) do |f|%>
+    <%= f.label :content, 'Create a post' %>
+    <%= f.text_field :content, placeholder: 'What are you thinking?', class: 'form-control' %><br>
+    <%= render 'posts/posts_errors'%>
+    <%= f.submit 'Create', class: 'btn btn-info btn-block' %>
+  <% end %>
+</div>

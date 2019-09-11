@@ -1,0 +1,13 @@
+<div class='form-container'>
+    <% if @post.errors.any? %>
+        <% @post.errors.full_messages.each do |error|%>
+            <span> <%= error %> </span>
+        <% end %>
+    <% end %>
+
+    <%= form_for(:post, url: posts_create_path) do |f|%>
+        <%= f.label :content, 'Create a post' %>
+        <%= f.text_field :content, placeholder: 'What are you thinking?', class: 'form-control' %><br>
+        <%= f.submit 'Submit', class: 'btn btn-info btn-block' %>
+    <% end %>
+</div>
