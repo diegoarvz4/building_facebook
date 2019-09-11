@@ -24,10 +24,18 @@ class UsersController < ApplicationController
     end
   end
  
-  def accept_request
+  def accept_friend
+    friend = Friendship.find_by(id: params[:id])
+    @friendship = friend.update_attributes(confirmed: true)
+    if @friendship
+      redirect_to users_path
+      flash.notice = 'Friend accepted'
+    else
+      redirect_to users_path
+      flash.alert = 'Failed to accept request'
+    end
   end
-  def pending_requests
-  end
+ 
   private
 
   def user_id_param
