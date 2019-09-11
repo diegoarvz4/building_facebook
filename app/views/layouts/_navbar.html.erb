@@ -7,34 +7,33 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-     
-
-    
       <ul class="nav navbar-nav navbar-right">
-          <% if current_user%>
-                      
-            <li><%= link_to "Users", users_path %></li>
-            <li><%= link_to "Timeline", root_path %></li> 
-            <li> <%= image_tag(current_user.gravatar_url, class: "img-circle img-small") %></li> <!--GRAVATAR IMAGE TAGE -->
-            <% if !@expected.nil? && !@expected.empty?  %>
-                            
-              <li class="dropdown">
-                  <a href="#" class="dropdown-toggle request"  id="menu1" data-toggle="dropdown"><%= pluralize(@expected.count, 'pending friend request') %>
-                  <span class="caret"></span></a>
-                  
-                  <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                    <% @expected.each do |friend| %>
-                    <li class="request-list" role="presentation"><span role="menuitem" tabindex="-1" ><%= friend.user.profile.name %></span>
-                                            <span class="btn btn-success btn-xs "><%= link_to 'accept', friendship_path(id: friend.id), method: :patch %></span>
-                    </li>
-                    <% end %>
-                  </ul>
+        <% if current_user%>
+          <li><%= link_to "Users", users_path %></li>
+          <li><%= link_to "Timeline", root_path %></li> 
+          <li> <%= image_tag(current_user.gravatar_url, class: "img-circle img-small") %></li> <!--GRAVATAR IMAGE TAGE -->
+          <% if !@expected.nil? && !@expected.empty?  %>            
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle request"  id="menu1" data-toggle="dropdown"><%= pluralize(@expected.count, 'pending friend request') %>
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                <% @expected.each do |friend| %>
+                <li class="request-list" role="presentation">
+                  <span role="menuitem" tabindex="-1">
+                    <%= friend.user.profile.name %>
+                  </span>
+                  <span class="btn btn-success btn-xs ">
+                    <%= link_to 'accept', friendship_path(id: friend.id), method: :patch %>
+                  </span>
                 </li>
-            
-            <% end %>
-            <li><%= link_to current_user.profile.name, current_user %></li>
-            <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
-          <% end %>        
+                <% end %>
+              </ul>
+              </li>
+          <% end %>
+          <li><%= link_to current_user.profile.name, current_user %></li>
+          <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+        <% end %>        
       </ul>
     </div>
   </div>
