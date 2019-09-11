@@ -10,11 +10,15 @@
   </head>
 
   <body>
+     <% if !current_user.nil? %> 
     <div class="container">
+     <% end %>
       <%= render 'layouts/alerts'%>
       <%= render 'layouts/navbar'%>
       <%= yield %> 
-    <div>
-    
+     <% if !current_user.nil? %> 
+      <div>
+     <% end %>
+    <%= render 'layouts/footer'%>
   </body>
 </html>
