@@ -23,7 +23,19 @@
               <li><%= link_to "Timeline", root_path %></li> 
               <li> <%= image_tag(current_user.gravatar_url, class: "img-circle img-small") %></li> <!--GRAVATAR IMAGE TAGE -->
               <% if !@expected.nil? %>
-              <li><%= link_to pluralize(@expected.count, 'pending friend request'), '#', class: 'text-danger' %> </li>
+                              
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle request"  id="menu1" data-toggle="dropdown"><%= pluralize(@expected.count, 'pending friend request') %>
+                    <span class="caret"></span></a>
+                   
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                     <% @expected.each do |friend| %>
+                      <li class="request-list" role="presentation"><span role="menuitem" tabindex="-1" ><%= friend.user.profile.name %></span>
+                                              <span class="btn btn-success btn-xs ">accept</span>
+                      </li>
+                      <% end %>
+                    </ul>
+                  </li>
               
               <% end %>
               <li><%= link_to current_user.profile.name, current_user %></li>
@@ -33,4 +45,5 @@
     </div>
   </div>
 </nav>
+
 

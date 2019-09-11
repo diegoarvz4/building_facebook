@@ -17,8 +17,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-
-  def find_friends
+ def find_friends
     @friendships = current_user.friendships 
     @friendships_users = @friendships.map { |friend| friend.friend }
     @pending = @friendships.select { |friendship| !friendship.confirmed }

@@ -119,3 +119,14 @@ table{
    display:flex;
    justify-content: space-between;
 }
+
+.request{
+  color:red !important;
+}
+
+.request-list{
+  display:flex;
+  justify-content: space-between;
+  padding: 2px;
+  width: 190px;
+}
