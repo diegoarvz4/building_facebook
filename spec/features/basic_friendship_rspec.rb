@@ -24,6 +24,6 @@ RSpec.describe 'User friendship test', type: :feature do
     click_on '1 pending friend request'
     expect(page).to have_content('accept')
     click_on 'accept'
-    expect(page).to have_content('Friend accept')
+    expect(page).to have_content('Friend accepted')
   end
 end
