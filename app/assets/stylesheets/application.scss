@@ -18,11 +18,11 @@
  @import "bootstrap-custom";
 
  .container{
-   min-height:80vh;
+   min-height:100vh;
    background-color:white;
-   padding: 100px 0;
-
- }
+   padding: 100px 10px;
+   }
+   
 .navbar{
   margin: 0 auto;
   padding: 0 300px;
@@ -151,11 +151,11 @@ table{
 }
 
 .footer {
-  position: relative;
+  position: absolute;
   bottom: 0;
-  width: 100%;
+  width: 61%;
   height: 100px;
-  margin-top:100px;
+  margin:0 auto;
   background-color: gray;
   color: white;
   text-align: center;
