@@ -14,7 +14,6 @@ RSpec.describe 'User friendship test', type: :feature do
     click_on 'Users'
     click_on 'Add friend'
     expect(page).to have_content('Friend request sent')
-    expect(page).to have_content('Pending')
     click_on 'Sign out'
     expect(page).to have_content('Signed out successfully')
     fill_in 'Email', with: 'alberto@email.com'
