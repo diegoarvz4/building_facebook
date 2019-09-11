@@ -62,7 +62,6 @@
 
  .img-large{
    width:80%;
-
 }
 
 .author{
@@ -73,6 +72,7 @@
 .author-img{
    width:25%;
 }
+
 td{
    width:400px;
    padding:10px;
@@ -81,24 +81,41 @@ td{
 .subject{
    font-weight: bold;
    color:rgb(174, 173, 230);
-
-
 }
+
 table{
    border:1px solid lightgray;
    border-radius:10px;
    padding:20px;
 }
 
-.delete a:link{
-   text-decoration: none;
+.comment-form{
+   width: 360px;
+   border-radius:10px;
+   margin-bottom: 10px;
+   padding:5px;
+}
+
+
+.comment-btn{
+   border:0px;
+   background-color:#31B0D5;
+   color:white;
+   border-radius:5px;
+}
+
+.footer-nav{
+   height: 100px;
+   background-color: rgba(44, 41, 41, 0.212);
+   padding:10px 50px;
+   margin-top:100px;
+}
+
+.delete-btn{
    color:red;
- 
-   }
+}
 
-
-.edit a:link{
-      text-decoration: none;
-      color:rgb(48, 48, 233);
-      
-   }
+.comment-info{
+   display:flex;
+   justify-content: space-between;
+}
