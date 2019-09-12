@@ -2,6 +2,7 @@
 
 class PostsController < ApplicationController
   before_action :find_post, only: %i[show edit update destroy]
+  before_action :find_friends
 
   def index
     @posts = Post.all

@@ -1,13 +1,7 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
      <%= link_to "uFriends", root_path, class:"navbar-brand" %>
     </div>
 
@@ -19,14 +13,31 @@
       <ul class="nav navbar-nav navbar-right">
           <% if current_user%>
                       
-              <li><%= link_to "Users", users_path %></li>
-              <li><%= link_to "Timeline", root_path %></li> 
-              <li> <%= image_tag(current_user.gravatar_url, class: "img-circle img-small") %></li> <!--GRAVATAR IMAGE TAGE -->
-              <li><%= link_to current_user.profile.name, current_user %></li>
-              <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to "Users", users_path %></li>
+            <li><%= link_to "Timeline", root_path %></li> 
+            <li> <%= image_tag(current_user.gravatar_url, class: "img-circle img-small") %></li> <!--GRAVATAR IMAGE TAGE -->
+            <% if !@expected.nil? && !@expected.empty?  %>
+                            
+              <li class="dropdown">
+                  <a href="#" class="dropdown-toggle request"  id="menu1" data-toggle="dropdown"><%= pluralize(@expected.count, 'pending friend request') %>
+                  <span class="caret"></span></a>
+                  
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                    <% @expected.each do |friend| %>
+                    <li class="request-list" role="presentation"><span role="menuitem" tabindex="-1" ><%= friend.user.profile.name %></span>
+                                            <span class="btn btn-success btn-xs "><%= link_to 'accept', friendship_path(id: friend.id), method: :patch %></span>
+                    </li>
+                    <% end %>
+                  </ul>
+                </li>
+            
+            <% end %>
+            <li><%= link_to current_user.profile.name, current_user %></li>
+            <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
           <% end %>        
       </ul>
     </div>
   </div>
 </nav>
+
 
