@@ -298,5 +298,7 @@ Devise.setup do |config|
   # config.sign_in_after_change_password = true
   config.scoped_views = true
 
-  config.omniauth :facebook, "235261614046003", "02be1298268435c175f6fe1d3158ab1c", callback_url: "http://localhost:3000/auth/facebook/callback"
+  config.omniauth :facebook, "380407979524283", "2ce075ca4a1ce4c6d6292f6d534e8a2e", callback_url: "http://localhost:3000/auth/facebook/callback"
+
+  
 end
