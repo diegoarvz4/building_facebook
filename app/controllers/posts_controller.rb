@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   before_action :find_friends
 
   def index
-    @posts = Post.all
+    @posts = Post.where(@accepted_users.include(post.user) )
     @post = Post.new
   end
 
