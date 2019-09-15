@@ -5,7 +5,12 @@ class PostsController < ApplicationController
   before_action :find_friends
 
   def index
-    @posts = Post.where(@accepted_users.include(post.user) )
+    @posts = @accepted_users.map {|user| user.posts}
+    @posts = @posts.flatten!
+    @posts += current_user.posts
+    @posts = @posts.sort_by { |key| key["created_at"] }
+    @posts.reverse!
+    #@authors = @posts.map{|post| post.author.profile.name}
     @post = Post.new
   end
 
