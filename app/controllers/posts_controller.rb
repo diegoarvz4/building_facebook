@@ -2,15 +2,13 @@
 
 class PostsController < ApplicationController
   before_action :find_post, only: %i[show edit update destroy]
-  before_action :find_friends
+
 
   def index
-    @posts = @accepted_users.map {|user| user.posts}
-    @posts = @posts.flatten!
+    @posts = accepted_users.map{ |user| user.posts }.flatten!
     @posts += current_user.posts
-    @posts = @posts.sort_by { |key| key["created_at"] }
-    @posts.reverse!
-    #@authors = @posts.map{|post| post.author.profile.name}
+    @posts.sort_by! { |key| key["created_at"] }.reverse!
+    # @authors = @posts.map{|post| post.author.profile.name}
     @post = Post.new
   end
 

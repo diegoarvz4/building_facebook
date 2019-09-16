@@ -16,6 +16,10 @@ class User < ApplicationRecord
   # friendship association
   has_many :friendships
   has_many :inverse_friendships, class_name: 'Friendship', foreign_key: 'friend_id'
+  
+  class << self
+    
+  end  
 
   private
 
