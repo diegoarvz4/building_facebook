@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   before_action :find_post, only: %i[show edit update destroy]
 
   def index
-    @posts = accepted_users.map { |user| user.posts }.flatten!
+    @posts = accepted_users.map(&:posts).flatten!
     @posts += current_user.posts
     @posts.sort_by! { |key| key['created_at'] }.reverse!
     @post = Post.new
