@@ -301,5 +301,5 @@ Devise.setup do |config|
   # config.sign_in_after_change_password = true
   config.scoped_views = true
 
-  config.omniauth :facebook, '229696334651787', '19c12306b29a7d5c7c716242c7c87262', callback_url: 'https://mysterious-caverns-83799.herokuapp.com/auth/facebook/callback'
+  config.omniauth :facebook, '229696334651787', '19c12306b29a7d5c7c716242c7c87262', callback_url: 'https://u-friends.herokuapp.com/auth/facebook/callback'
 end
