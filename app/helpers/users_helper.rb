@@ -11,7 +11,7 @@ module UsersHelper
 
   def friendships_users
     current_user.friendships.map(&:friend)
-  end 
+  end
 
   def expected_friends
     current_user.inverse_friendships.reject(&:confirmed).map(&:user)
@@ -19,10 +19,10 @@ module UsersHelper
 
   def pending_users
     current_user.friendships.reject(&:confirmed).map(&:friend)
-  end 
+  end
 
   def accepted_users
     accepted = current_user.friendships.select(&:confirmed).map(&:friend)
-    accepted += current_user.inverse_friendships.select(&:confirmed).map(&:user)
+    accepted + current_user.inverse_friendships.select(&:confirmed).map(&:user)
   end
 end

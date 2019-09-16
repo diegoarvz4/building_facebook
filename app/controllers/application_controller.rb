@@ -17,6 +17,4 @@ class ApplicationController < ActionController::Base
                profile_attributes: %i[id name city country description])
     end
   end
-
-  
 end
