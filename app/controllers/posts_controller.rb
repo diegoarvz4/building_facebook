@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
+  include Friends
   before_action :find_post, only: %i[show edit update destroy]
 
   def index
