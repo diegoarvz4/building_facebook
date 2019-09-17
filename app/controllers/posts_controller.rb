@@ -5,15 +5,15 @@ class PostsController < ApplicationController
   before_action :find_post, only: %i[show edit update destroy]
 
   def index
-      @posts = current_user.posts 
-      @friends_posts = accepted_users.map(&:posts).flatten!
-      if @friends_posts
-        @posts += @friends_posts
-      end 
-      if @posts
-        @posts.sort_by{ |key| key['created_at'] }.reverse!
-      end 
-      @post = Post.new
+    @posts = current_user.posts
+    @friends_posts = accepted_users.map(&:posts).flatten!
+    if @friends_posts
+      @posts += @friends_posts
+    end 
+    if @posts
+      @posts.sort_by{ |key| key['created_at'] }.reverse!
+    end 
+    @post = Post.new
   end
 
   def create
