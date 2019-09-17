@@ -9,10 +9,10 @@ class PostsController < ApplicationController
     @friends_posts = accepted_users.map(&:posts).flatten!
     if @friends_posts
       @posts += @friends_posts
-    end 
+    end
     if @posts
-      @posts.sort_by{ |key| key['created_at'] }.reverse!
-    end 
+      @posts.sort_by { |key| key['created_at'] }.reverse!
+    end
     @post = Post.new
   end
 

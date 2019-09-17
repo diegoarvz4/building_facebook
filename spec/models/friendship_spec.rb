@@ -27,19 +27,14 @@ RSpec.describe Friendship, type: :model do
     expect(friendship).to be_valid
   end
 
-
-  it 'is invalid with friend requesting a user' do  
+  it 'is invalid with friend requesting a user' do
     friendship.user = user
     friendship.friend = user_2
-    friendship.save 
-    #
+    friendship.save
     friendship2 = Friendship.new
-    friendship2.user = user_2 
+    friendship2.user = user_2
     friendship2.friend = user
     friendship2.valid?
-    #
     expect(friendship2.errors[:friendship]).to include('You have a pending request from this user!')
-  end 
-
-  
+  end
 end
