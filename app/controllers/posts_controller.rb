@@ -7,12 +7,8 @@ class PostsController < ApplicationController
   def index
     @posts = current_user.posts
     @friends_posts = accepted_users.map(&:posts).flatten!
-    if @friends_posts
-      @posts += @friends_posts
-    end
-    if @posts
-      @posts.sort_by { |key| key['created_at'] }.reverse!
-    end
+    @posts += @friends_posts if @friends_posts
+    (@posts.sort_by &.created_at).reverse!
     @post = Post.new
   end
 
