@@ -16,7 +16,7 @@
  @import "bootstrap-sprockets";
  @import "bootstrap-variables";
  @import "bootstrap-custom";
-*{
+ *{
   margin:0;
   padding:0;
 }
@@ -38,6 +38,7 @@
    box-shadow: 2px 2px 3px white;
   }
  .container{
+   margin-top:40px;
    min-height:700px;
    background-color:white;
    padding: 50px 0 0 0;
