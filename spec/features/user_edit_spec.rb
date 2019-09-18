@@ -13,7 +13,6 @@ RSpec.describe 'User profile', type: :feature do
     expect(page).to have_content('City')
     click_on 'Edit Profile'
     new_name = 'Mister Goku'
-    fill_in 'Current password', with: '1234567890'
     fill_in 'Name', with: 'Mister Goku'
     click_on 'Update'
     expect(page).to have_content(new_name)
