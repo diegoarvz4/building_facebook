@@ -48,7 +48,7 @@ Try in http://localhost:3000/
 
 And live version
 ```
-https://mysterious-caverns-83799.herokuapp.com/
+https://intense-refuge-98385.herokuapp.com
 ```
 
 
