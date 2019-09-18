@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
+  include Friends
   before_action :find_post, only: %i[show edit update destroy]
 
   def index
-    @posts = accepted_users.map(&:posts).flatten!
-    @posts += current_user.posts
-    @posts.sort_by! { |key| key['created_at'] }.reverse!
+    @posts = current_user.posts
+    @friends_posts = accepted_users.map(&:posts).flatten!
+    @posts += @friends_posts if @friends_posts
+    (@posts&.sort_by { |key| key.created_at }).reverse!
     @post = Post.new
   end
 

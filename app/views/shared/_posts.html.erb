@@ -1,3 +1,4 @@
+<% unless @posts.nil? %>
 <% @posts.each do |post|%>
   <hr>
   <div class="post">
@@ -73,7 +74,8 @@
         <span> -- <%= time_ago_in_words(comment.created_at) %> </span><br><hr>
       </div>
      <!-- ###COMMENT DISPLAY ENDING-->
+     
     <% end %>
   </div>
- 
+  <% end %>
 <% end %>

@@ -1,7 +1,9 @@
 <h1>Users </h1>
 <hr>
-  <div class="users">
- <% @users.each do |user|%>     
+
+
+<div class="users">
+  <% @users.each do |user|%>     
     <div class="user">
       <h4><%= link_to user.profile.name, user %></h4>
       <%= image_tag(user.gravatar_url, class: "img-index") %>

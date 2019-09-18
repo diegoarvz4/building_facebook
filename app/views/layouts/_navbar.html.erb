@@ -24,7 +24,7 @@
                     <%= friend.profile.name %>
                   </span>
                   <span class="btn btn-success btn-xs ">
-                    <%= link_to 'accept', friendship_path(id: friend.id), method: :patch %>
+                    <%= link_to 'accept', friendship_path(id: friendship(friend).id), method: :patch %>
                   </span>
                 </li>
                 <% end %>
