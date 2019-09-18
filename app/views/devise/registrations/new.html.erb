@@ -1,5 +1,7 @@
-<div class="form-container">
-
+<div class="container-div">
+  <h1>Welcome to uFriends social network</h1>
+  <div class="form-container1">
+   <%= render 'layouts/alerts'%>
   <h2>Sign up</h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -30,4 +32,5 @@
   <% end %>
 
   <%= render "devise/shared/links" %>
+  </div>
 </div>
