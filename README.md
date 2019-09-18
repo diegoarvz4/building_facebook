@@ -1,24 +1,58 @@
-# README
+# Building Facebook Project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Introduction
 
-Things you may want to cover:
+This is part of the Building Facebook Project in [The Odin Project’s Ruby on Rails Curriculum](http://www.theodinproject.com)
 
-* Ruby version
+It's a project about making a basic social media app, a clone of facebook.
 
-* System dependencies
 
-* Configuration
+## Skills demonstrated in this project
 
-* Database creation
+* Rails Sessions (REST way)
+* Devise
+* Rails routes
+* Omniauth facebook
+* Posting
+* Mutual Friendships
 
-* Database initialization
 
-* How to run the test suite
+## Getting started
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+To get started, clone the repo and then install the needed gems:
 
-* ...
+```
+$ bundle install
+```
+
+Next, migrate the database:
+
+```
+$ rails db:migrate
+```
+
+Run the test suite to verify that everything is working correctly:
+
+```
+$ rspec
+```
+
+Run the server
+
+```
+$ rails server
+```
+
+Try in http://localhost:3000/
+
+And live version
+```
+https://mysterious-caverns-83799.herokuapp.com/
+```
+
+
+## Contributors
+
+[Alberto Ngodi](https://github.com/ngodi) and 
+[Diego Arvizu](https://github.com/diegoarvz4)

@@ -26,11 +26,6 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
   </div>
 
-  <div class="field form-group">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" , class: "form-control"%>
-  </div>
-
 
   <%= f.fields_for :profile do |builder| %>
     <hr />
