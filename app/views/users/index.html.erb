@@ -1,1 +1,27 @@
-  <div class="container"><button class="btn btn-primary">Button</button></div>
+<h1>Users </h1>
+<hr>
+
+
+<div class="users">
+  <% @users.each do |user|%>     
+    <div class="user">
+      <h4><%= link_to user.profile.name, user %></h4>
+      <%= image_tag(user.gravatar_url, class: "img-index") %>
+      <% if current_user != user %>
+        <% if !accepted_users.nil? && accepted_users.include?(user)%> <hr>
+          <%= link_to 'Friend','#',  class: 'btn btn-success btn-block' %>
+        <% elsif !pending_users.nil? && pending_users.include?(user)%> <hr>
+          <%= link_to 'Pending','#',  class: 'btn btn-warning btn-block' %>
+        <% elsif !expected_friends.nil? && expected_friends.include?(user)%> <hr>
+          <%= link_to 'Accept', friendship_path(id: friendship(user).id), method: :patch, class: 'btn btn-success btn-block' %>
+        <% elsif !friendships_users.nil? && !friendships_users.include?(user)%> <hr>
+          <%= link_to 'Add friend', friendship_path(id: user.id), method: :post, class: 'btn btn-primary btn-block' %>
+        <% end %>
+      <% else %> <hr>
+        <%= link_to 'My Profile', current_user, class: 'btn btn-default btn-block' %>
+      <% end %>
+    </div>
+  <% end %> 
+</div>
+
+

@@ -1,0 +1,42 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+     <%= link_to "uFriends", root_path, class:"navbar-brand" %>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user%>
+          <li><%= link_to "Users", users_path %></li>
+          <li><%= link_to "Timeline", root_path %></li> 
+          <li> <%= image_tag(current_user.gravatar_url, class: "img-circle img-small") %></li> <!--GRAVATAR IMAGE TAGE -->
+          <% if !expected_friends.nil? && !expected_friends.empty?  %>            
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle request"  id="menu1" data-toggle="dropdown"><%= pluralize(expected_friends.count, 'pending friend request') %>
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                <% expected_friends.each do |friend| %>
+                <li class="request-list" role="presentation">
+                  <span role="menuitem" tabindex="-1">
+                    <%= friend.profile.name %>
+                  </span>
+                  <span class="btn btn-success btn-xs ">
+                    <%= link_to 'accept', friendship_path(id: friendship(friend).id), method: :patch %>
+                  </span>
+                </li>
+                <% end %>
+              </ul>
+              </li>
+          <% end %>
+          <li><%= link_to current_user.profile.name, current_user %></li>
+          <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+        <% end %>        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+

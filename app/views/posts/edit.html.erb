@@ -1,0 +1,9 @@
+<div class='form-container'>
+  <%= form_for @post do |f|%>
+    <%= f.label :content, 'Modify your post' %>
+    <%= f.text_field :content, value: @post.content, class: 'form-control' %><br>
+    <%= render 'posts_errors'%>
+    <%= f.submit 'Submit', class: 'btn btn-info btn-block' %>
+  <% end %>
+</div>
+

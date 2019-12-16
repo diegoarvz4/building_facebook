@@ -1,0 +1,54 @@
+<div class="post">
+  <div class="post-content"> <%= link_to @post.content, @post  %> </div>
+  <div class="author">
+    <div class="author-img">
+      <%= image_tag(@post.author.gravatar_url, class: "img-circle author-img") if user_signed_in? %>
+    </div>
+    <div class="author-info">
+      <span class="post-author"><%= link_to @post.author.profile.name, @post.author %> </span>
+      <span class="post-timeago"><%= time_ago_in_words(@post.created_at) %> ago  </span>
+    </div>
+  </div>
+  <hr>
+  <div class="post-buttons">
+    <%= link_to image_tag('thumbs-up.svg', class: 'like-icon'), likes_path(post_id: @post.id), method: :post,  id: "like-link"  %>
+    <% if  current_user && (current_user.id == @post.author.profile.id) %>
+      <%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to 'Edit', edit_post_path(@post) %>
+    <% end %>
+  </div>
+  <% if @post.likes.any? %>
+    <h6> <%= pluralize(@post.likes.count,'like') %>  </h6> 
+  <% end %>
+  <div class="post-like-names">
+  <% @post.likes.each do |like| %>
+      <span ><%= like.user.profile.name %></span>
+  <% end %>
+  </div>
+  <!-- ###COMMENT FORM -->
+  <%= form_for(:comment, url: comments_path) do |f|%>
+    <%= f.text_field :content, placeholder: 'add a comment...', class: 'comment-form' %>
+    <%= f.hidden_field :post_id, value: @post.id %>
+    <%= f.hidden_field :author_id, value: current_user.id %>
+    <%= f.submit 'send', class: 'comment-btn' %>
+  <% end %>
+  <hr>
+  <!-- ###COMMENT FORM BEGINNING -->
+  <% if @post.comments.any?%>
+    <h4> <%= pluralize(@post.comments.count,'comment') %> </h4>
+  <% end %>
+  <% @post.comments.each do |comment| %>
+    <div class="comments">
+      <div class="comment-info">
+        <b><%= comment.content %> </b>
+          <% if  current_user && (current_user.id == @post.author.profile.id) %>
+            <%= link_to 'X', comment_path(comment) ,class:"btn btn-default btn-xs delete-btn", method: :delete, data: { confirm: 'Delete your comment?' } %>
+          <% end %>
+      </div>
+      <span>By :<%= comment.author.profile.name %> </span>
+      <span> -- <%= time_ago_in_words(comment.created_at) %> </span><br><hr>
+    </div>
+    <!-- ###COMMENT DISPLAY ENDING-->
+  <% end %>
+</div>
+

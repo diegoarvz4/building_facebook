@@ -1,0 +1,68 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.post{
+    
+    padding: 20px 20px;
+    width: 40%;
+    margin: 0 auto;
+    border: 1px solid rgba(0,0,0,0.18);
+    border-radius: 7px;
+    background-color: #F8F8F8;
+
+    &-content{
+        background-color: white;
+        padding: 30px 10px;
+        border: 1px solid rgba(0,0,0,0.18);
+        border-radius: 7px;
+        font-size: 3rem;
+        margin-bottom: 10px;
+    }
+
+    &-author{
+        font-size: 1.5rem;
+        margin-right: 10px;
+        font-weight: bold;
+    }
+
+    &-timeago{
+        font-size: 1rem;
+    }
+
+    &-buttons{
+        display:flex;
+        justify-content: space-between;
+        &-comment{
+            font-weight: bold;
+            cursor: pointer;
+        }
+    }
+
+    &-like-names span:after{
+    
+        content: ",";
+
+    }
+
+    &-like-names span:last-child:after{
+    
+        content: " ";
+
+    }
+}
+
+.like-icon{
+    width: 20px;
+    &:hover{
+        cursor: pointer;
+    }
+
+    &:active{
+        width: 22px;
+    }
+
+    transition: all 0.1s;
+
+}
+

@@ -1,0 +1,9 @@
+<% if  @post && @post.errors.any? %>
+  <div>
+    <% @post.errors.full_messages.each do |error|%>
+      <hr>
+      <h4> <%= error %> </h4>
+      <hr>
+    <% end %>
+  </div>
+<% end %>
