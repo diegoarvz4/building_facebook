@@ -43,6 +43,11 @@ To get a local copy up and running follow these simple example steps.
 
 ## Run tests
   To run the tests simple run the following command on your terminal: `$ bundle exec rspec`
+  
+## Future Features
+
+- Google authentication
+- Upoading images
 
 # Authors
 
