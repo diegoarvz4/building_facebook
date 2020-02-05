@@ -1,6 +1,6 @@
 # uFriends
 
-> It's a project is a social network that lets you make posts and comments.
+> This project is a social network that lets you make posts and comments. You can add friends and see their posts! Try logging in with your own facebook account.
 
 ## Live
 
