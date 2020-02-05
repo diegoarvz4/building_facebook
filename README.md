@@ -2,11 +2,23 @@
 
 > It's a project is a social network that lets you make posts and comments.
 
-# Live
+## Live
 
 ```
 https://intense-refuge-98385.herokuapp.com
 ```
+
+## Screenshots and Walkthrough
+
+https://www.loom.com/share/37a5e19c59874ef89740d5a5c840f1ce
+
+### Landing
+
+https://diegoarvz.s3-us-west-1.amazonaws.com/Screenshot_2020-02-04+uFriends.png
+
+### User Dashboard
+
+https://diegoarvz.s3-us-west-1.amazonaws.com/Screenshot_2020-02-04+uFriends(1).png
 
 ## Built With
 
