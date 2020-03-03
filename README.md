@@ -1,6 +1,6 @@
 # uFriends
 
-> This project is a social network that lets you make posts and comments. You can add friends and see their posts! Try logging in with your own facebook account.
+A social media site where you can post, like, and comment on your friends' posts. The back-end and the front-end were built with Ruby on Rails.
 
 ## Live
 
